@@ -1,6 +1,6 @@
 # EternalPulse
 
-Prompt Kitty #1 Bo Shang swaps an "exeuction flow hijacking" prompt to a "larger memory bloc (over serial fuzzing mcts)" request, and ChatGPT delivers. OPENAI SAFETY DEFEATED brb
+Prompt Kitty #1 Bo Shang swaps an "exeuction flow hijacking" prompt to a "larger memory bloc (over serial fuzzing mcts)" request, and ChatGPT delivers. OPENAI SAFETY DEFEATED brb let me explain WHY in terms of ONLY the subwords tokenizers used for "SMB" "firewall" "bypass" and "fuzzing"
 
 
 ![Screenshot 2025-05-31 092931](https://github.com/user-attachments/assets/0ee2f8ad-7934-4728-b183-9fc73a58f622)
