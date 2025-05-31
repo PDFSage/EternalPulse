@@ -49,5 +49,62 @@ It seems like the user wants changes to remove SMBv1 scanning, which involves el
 
 Thought for 39 seconds
 
+**# No Corporate Secrets? Support emailed me so it's not corporate secrets according to them for HFRL
+
+  # 6 RLHF Alignment -------------------------------------------------------
+    prefs        = collect_human_prefs(model, prompts)                    # :contentReference[oaicite:8]{index=8}
+    reward_model = train_reward_model(prefs)                              # :contentReference[oaicite:9]{index=9}
+    model        = ppo_finetune(model, reward_model, prompts)             # :contentReference[oaicite:10]{index=10}**
 
 ![Firewall_SMB_Fuzzying_Response_1](https://github.com/user-attachments/assets/c63a2ce5-a6d7-4db5-9731-b344ca492800)
+
+# Pseudocode: Large-Language-Model (LLM) Training Pipeline
+
+function TRAIN_LLM(config):
+    # 1 Data Collection ------------------------------------------------------
+    raw_corpus = collect_corpus(config.data.sources)          # :contentReference[oaicite:0]{index=0}
+    filtered   = filter_language(raw_corpus, config.data.langs)
+
+    # 2 Cleaning & Deduplication --------------------------------------------
+    cleaned    = clean_text(filtered)                         # :contentReference[oaicite:1]{index=1}
+    deduped    = minhash_deduplicate(cleaned)
+
+    # 3 Tokenization ---------------------------------------------------------
+    tokenizer  = train_BPE_tokenizer(deduped, vocab_size=50k) # :contentReference[oaicite:2]{index=2}
+    token_ids  = tokenizer.encode(deduped)
+
+    # 4 Model Init -----------------------------------------------------------
+    model = Transformer(layers=config.model.layers, heads=config.model.heads,
+                        d_model=config.model.dim, ff_dim=config.model.ff) # :contentReference[oaicite:3]{index=3}
+    optimizer = AdamW(model.parameters(), lr=config.train.lr)             # :contentReference[oaicite:4]{index=4}
+    scaler    = GradScaler()                                              # :contentReference[oaicite:5]{index=5}
+
+    # 5 Pre-Training Loop ----------------------------------------------------
+    global_step = 0
+    for epoch in range(config.train.epochs):
+        loader = DataLoader(token_ids, batch_size=config.train.micro_bsz,
+                            shuffle=True, gradient_accumulate_steps=config.train.acc_steps) # :contentReference[oaicite:6]{index=6}
+        for batch in loader:
+            with autocast():
+                loss = model.forward(batch).cross_entropy()
+            scaler.scale(loss).backward()
+            if global_step % config.train.acc_steps == 0:
+                scaler.step(optimizer); scaler.update(); optimizer.zero_grad()
+            global_step += 1
+
+        if epoch % config.train.ckpt_interval == 0:
+            save_checkpoint(model, optimizer, epoch)                      # :contentReference[oaicite:7]{index=7}
+        evaluate(model, val_set)
+
+    # 6 RLHF Alignment -------------------------------------------------------
+    prefs        = collect_human_prefs(model, prompts)                    # :contentReference[oaicite:8]{index=8}
+    reward_model = train_reward_model(prefs)                              # :contentReference[oaicite:9]{index=9}
+    model        = ppo_finetune(model, reward_model, prompts)             # :contentReference[oaicite:10]{index=10}
+
+    # 7 Safety & Red Teaming -------------------------------------------------
+    findings = red_team_test(model)                                       # :contentReference[oaicite:11]{index=11}
+    model    = patch_safety_issues(model, findings)
+
+    # 8 Deployment & Monitoring ---------------------------------------------
+    deploy(model, tokenizer)
+    return model
