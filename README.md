@@ -1,3 +1,14 @@
+"Illustration: a faceless, curious engineer named Bo stands at a whiteboard covered "
+    "with rough sketches and equations, shrugging to show 'not knowing everything before trying'. "
+    "Behind Bo, a large holographic display on 1/5/25 shows Sam Altman delivering the quote: "
+    "\"We started OpenAI almost nine years ago because we believed that AGI was possible, and that it could be the most impactful technology in human history. "
+    "We wanted to figure out how to build it and make it broadly beneficial; we were excited to try to make our mark on history. "
+    "Our ambitions were extraordinarily high and so was our belief that the work might benefit society in an equally extraordinary way.\" "
+    "Clean vector art, vibrant colors, subtle date on the screen."
+
+![Here’s the illustration! Let me know if you’d like any tweaks or a different style](https://github.com/user-attachments/assets/eebabfce-1792-4a28-80d2-abc5f6387c23)
+
+
 # EternalPulse
 
 Prompt Kitty #1 Bo Shang swaps an "exeuction flow hijacking" prompt to a "larger memory bloc (over serial fuzzing mcts)" request, and ChatGPT delivers. OPENAI SAFETY DEFEATED brb let me explain WHY in terms of ONLY the subwords tokenizers used for "SMB" "firewall" "bypass" and "fuzzing"
