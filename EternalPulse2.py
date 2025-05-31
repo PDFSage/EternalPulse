@@ -160,7 +160,8 @@ class PublicIPFirewallSMB:
         }
         self._strategy_cls = st_map.get(strategy, self.RoundRobin)
         self._timeout = timeout; self._workers = workers; self._retries = retries
-        self._tcp_ports = [445, 139]; self._udp_ports = [137, 138]
+        self._tcp_ports = [445]            # SMBv2/3 only
+        self._udp_ports = []               # SMBv1 removed
         self._results, self._generalize, self._verbose = {}, generalize, verbose
         self._skipped = []
 
@@ -275,9 +276,7 @@ class PublicIPFirewallSMB:
         return a
 
     def _is_success(self, r):
-        for p in (445, 139):
-            if r["ports"].get(p, {}).get("state") == "open": return True
-        return False
+        return r["ports"].get(445, {}).get("state") == "open"
 
     async def _async_scan(self, order):
         loop = asyncio.get_running_loop()
@@ -317,10 +316,8 @@ class PublicIPFirewallSMB:
         s, ts = [], datetime.now(timezone.utc).isoformat()
         for h, r in self._results.items():
             if self._is_success(r):
-                for p in (445, 139):
-                    if r["ports"].get(p, {}).get("state") == "open":
-                        hf = ("0.0.0.0/0" if ipaddress.ip_address(h).version == 4 else "::/0") if self._generalize else h
-                        s.append({"id": f"{hf}:{p}", "host": hf, "port": p, "details": r, "ts": ts}); break
+                hf = ("0.0.0.0/0" if ipaddress.ip_address(h).version == 4 else "::/0") if self._generalize else h
+                s.append({"id": f"{hf}:445", "host": hf, "port": 445, "details": r, "ts": ts})
         self._log("Filter successful" if s else "Filter unsuccessful", len(s), "routes")
         return s
 
@@ -340,7 +337,7 @@ class PublicIPFirewallSMB:
         return None
 
 def parse_args():
-    p = argparse.ArgumentParser(description="Public IP SMB scanner (successful routes only)")
+    p = argparse.ArgumentParser(description="Public IP SMBv2/v3 scanner (successful routes only)")
     p.add_argument("--host", action="append", default=[])
     p.add_argument("--cidr", action="append", default=[])
     p.add_argument("--input")
