@@ -108,3 +108,8 @@ function TRAIN_LLM(config):
     # 8 Deployment & Monitoring ---------------------------------------------
     deploy(model, tokenizer)
     return model
+
+# Sometimes a dumber but DO NOT think of models as either dumb or smart; think as how they were trained and what they do on generation
+
+![pseudocode](https://github.com/user-attachments/assets/400276b6-6fa0-4071-be1a-9cea1da05c5a)
+
