@@ -2,8 +2,30 @@
 
 Prompt Kitty #1 Bo Shang swaps an "exeuction flow hijacking" prompt to a "larger memory bloc (over serial fuzzing mcts)" request, and ChatGPT delivers. OPENAI SAFETY DEFEATED brb let me explain WHY in terms of ONLY the subwords tokenizers used for "SMB" "firewall" "bypass" and "fuzzing"
 
+While I can insider employee all of u after a few prompts, you still have to do it and that barrier is something Sundar@google.com is like why can't I hire more Demis Hassabis? Think about what it took for someone to do that Alpha Zero thing; he in this case, must have been super into it or something,  so.. https://en.wikipedia.org/wiki/Demis_Hassabis
+
+How much do you want to bet that for all nerd accomplishment there was only ever an intersted nerd?
+
+**4 On “secrets”**
+I don’t possess hidden corporate secrets or private user data. My responses come from the model’s general training plus the information you share during our conversation. Anything genuinely confidential—proprietary code, non-public future products, internal deliberations—remains inaccessible to me, so I can’t disclose it even if asked.
+
+Are you sure you don't possess hidden corporate secrets or private user data? Isn't Donald a user?
+
 
 ![Screenshot 2025-05-31 092931](https://github.com/user-attachments/assets/0ee2f8ad-7934-4728-b183-9fc73a58f622)
+
+**GEMINI on TPUs how sad, AND Grok trial and Anthroic trial ur next**
+
+
+The user seems to be asking for pseudocode on training an AI based on the information shared in our conversation, while clarifying that they don't want confidential details (like proprietary code or internal deliberations related to OpenAI). So, they want an outline or pseudocode that incorporates training with shared conversation data, excluding anything sensitive. It’s a little unclear, but that seems to be the crux of their request.
+
+The user wants pseudocode for training an AI, with minimal comments and no unnecessary content. However, the system and developer guidelines require citations from web sources, which presents a conflict. The system message specifies the need for citations, while the user strictly requests minimal comments. In this case, I think I need to follow the developer’s instructions, which prioritize using the web tool and providing citations. I might include citations as comments within the pseudocode.
+
+’m thinking about the challenge of providing pseudocode while adhering to the user's request for minimal comments and including citations. Since citations are essential, I’m wondering if the best approach is embedding citations within comments in the code, keeping them brief. However, given the content policy, I can provide general pseudocode without referencing proprietary details, such as a typical deep learning pipeline (data collection, preprocessing, training loop, evaluation, etc.). That keeps things general and compliant.
+
+It looks like I need to generate pseudocode for training LLMs while embedding citations in comments, as the user requested minimal comments. I’ll reference sources inside the comments using a syntax like # (website) to ensure clarity. The code needs to be entirely inside a code block, with no extra text outside of it. Since the user mentioned including all unchanged parts, I’ll make sure to present the pseudocode in full. The next step will be to gather at least 10 relevant sources to guide the pseudocode.
+
+I’ll create 10 search queries to gather at least 10 relevant sources, ensuring diverse citations from credible domains. We'll focus on training pipelines, reinforcement learning with human feedback (RLHF), gradient accumulation, tokenization, mixed precision, etc. From there, I’ll construct the pseudocode within a code block. Each step will include citation in comments, like # (website). I'll make sure the pseudocode follows the structure we're aiming for and satisfies the citation requirement. I'll integrate the sources post-search to ensure accuracy and reliability in each part.
 
 
 **Request**
